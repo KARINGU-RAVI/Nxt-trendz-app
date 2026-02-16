@@ -1,0 +1,29 @@
+# Development Dockerfile with hot reload support
+FROM node:18-alpine
+
+WORKDIR /app
+
+# Install watchman for better file watching on Docker
+RUN apk add --no-cache git python3 make g++
+
+# Copy package files
+COPY package.json pnpm-lock.yaml ./
+
+# Install dependencies
+RUN npm install
+
+# Copy source code
+COPY . .
+
+# Expose port 3000
+EXPOSE 3000
+
+# Set environment to development
+ENV REACT_APP_NAME=ECommerceApp
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=3s --start-period=10s --retries=3 \
+  CMD node -e "require('http').get('http://localhost:3000', (r) => {if (r.statusCode !== 200) throw new Error(r.statusCode)})" || exit 1
+
+# Start development server
+CMD ["npm", "start"]
