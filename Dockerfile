@@ -3,6 +3,9 @@ FROM node:18-alpine AS builder
 
 WORKDIR /app
 
+# Set Node options to use legacy OpenSSL provider for Webpack 4 compatibility
+ENV NODE_OPTIONS=--openssl-legacy-provider
+
 # Copy package files
 COPY package.json pnpm-lock.yaml ./
 
@@ -19,6 +22,9 @@ RUN npm run build
 FROM node:18-alpine
 
 WORKDIR /app
+
+# Set Node options to use legacy OpenSSL provider
+ENV NODE_OPTIONS=--openssl-legacy-provider
 
 # Install serve to run the production build
 RUN npm install -g serve

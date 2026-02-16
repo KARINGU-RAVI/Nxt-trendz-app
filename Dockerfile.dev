@@ -3,6 +3,9 @@ FROM node:18-alpine
 
 WORKDIR /app
 
+# Set Node options to use legacy OpenSSL provider for Webpack 4 compatibility
+ENV NODE_OPTIONS=--openssl-legacy-provider
+
 # Install watchman for better file watching on Docker
 RUN apk add --no-cache git python3 make g++
 
