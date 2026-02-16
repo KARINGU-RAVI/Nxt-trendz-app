@@ -1,3 +1,4 @@
+#**Demo** : https://ravi-nxttrendz.netlify.app/
 # 🛍️ Nxt-Trendz E-Commerce App
 
 > A modern React e-commerce application with product browsing, filtering, cart management, and deployment-ready setup.
@@ -27,23 +28,9 @@ npm install
 # or
 pnpm install
 
-# Set environment variables (optional)
-# API URL defaults to: https://apis.ccbp.in
-export REACT_APP_API_URL=https://apis.ccbp.in
-
 # Start development server
 npm start
 # App runs at: http://localhost:3000
-```
-
-### Environment Variables
-
-```bash
-# Optional - API endpoint (defaults to https://apis.ccbp.in)
-REACT_APP_API_URL=https://apis.ccbp.in
-
-# Node.js v18+ requires legacy OpenSSL support
-NODE_OPTIONS=--openssl-legacy-provider
 ```
 
 ## 🐳 Docker Setup
@@ -69,24 +56,7 @@ docker-compose up -d
 docker run -p 3000:3000 nxt-trendz-app
 ```
 
-### Docker Commands
 
-```bash
-# List running containers
-docker ps
-
-# View logs
-docker logs nxt-trendz-app
-
-# Stop container
-docker stop nxt-trendz-app
-
-# Remove container
-docker rm nxt-trendz-app
-
-# View container health
-docker ps --format "table {{.Names}}\t{{.Status}}"
-```
 
 ## 📦 Project Structure
 
@@ -157,82 +127,6 @@ POST /login                      # Login endpoint
 GET  /products/search?search=    # Search products
 ```
 
-## 🚢 Deployment Guide
-
-### Option 1: **Netlify** (⭐ Recommended for beginners - 5 minutes)
-
-```bash
-# Push code to GitHub
-git add .
-git commit -m "Deploy to Netlify"
-git push origin main
-
-# Go to: https://netlify.com
-# Click "New site from Git"
-# Select your GitHub repo
-# Add environment variables:
-#   NODE_OPTIONS = --openssl-legacy-provider
-#   REACT_APP_API_URL = https://apis.ccbp.in
-# Click Deploy!
-
-# Your site: https://your-site-name.netlify.app
-```
-
-### Option 2: **Vercel** (⭐⭐ Best Performance - 3 minutes)
-
-```bash
-npm install -g vercel
-vercel --prod
-# Your site: https://your-project.vercel.app
-```
-
-### Option 3: **GitHub Pages** (Free Forever - 2 minutes)
-
-```bash
-# Update package.json
-# "homepage": "https://KARINGU-RAVI.github.io/Nxt-trendz-app"
-
-npm install --save-dev gh-pages
-
-# Add to package.json scripts:
-# "deploy": "gh-pages -d build"
-# "predeploy": "npm run build"
-
-npm run deploy
-# Your site: https://KARINGU-RAVI.github.io/Nxt-trendz-app
-```
-
-### Option 4: **Render** (Full-stack apps)
-
-```bash
-# Create account at: https://render.com
-# Connect GitHub repo
-# Set Build Command: npm run build
-# Set Start Command: npm start
-# Add environment variables
-# Click Deploy
-```
-
-### Option 5: **Firebase Hosting**
-
-```bash
-npm install -g firebase-tools
-firebase login
-npm run build
-firebase deploy
-```
-
-### Deployment Checklist
-
-- [ ] Code pushed to GitHub
-- [ ] Environment variables set on platform:
-  - `NODE_OPTIONS=--openssl-legacy-provider`
-  - `REACT_APP_API_URL=https://apis.ccbp.in`
-- [ ] Build command: `npm run build` (or `npm run build` for custom)
-- [ ] Start command: varies by platform
-- [ ] Test login functionality after deployment
-- [ ] Test cart functionality after deployment
-- [ ] Verify no console errors
 
 ## 📋 Technology Stack
 
@@ -453,29 +347,6 @@ Use these files to complete the implementation:
 - `src/components/SimilarProductItem/index.css`
 
 </details>
-
-### Quick Tips
-
-<details close>
-<summary>Click to view</summary>
-<br>
-
-- The `line-height` CSS property sets the height of a line box. It's commonly used to set the distance between lines of text.
-
-  ```
-  line-height: 1.5;
-  ```
-
-    <br/>
-    <img src="https://assets.ccbp.in/frontend/react-js/line-height-img.png" alt="cursor pointer" style="width:90%; max-width: 600px;"/>
-
-</details>
-
-### Important Note
-
-<details>
-<summary>Click to view</summary>
-
 <br/>
 
 **The following instructions are required for the tests to pass**
@@ -486,73 +357,6 @@ Use these files to complete the implementation:
 - `Product Item Details` Route should consist of `/products/:id` in the URL path
 - `Cart` Route should consist of `/cart` in the URL path
 - No need to use the `BrowserRouter` in `App.js` as we have already included in `index.js`
-
-- Prime User credentials
-
-  ```
-   username: rahul
-   password: rahul@2021
-  ```
-
-- Non-Prime User credentials
-
-  ```
-   username: raja
-   password: raja@2021
-  ```
-
-- Wrap the Loader component with an HTML container element and add the `data-testid` attribute value as `loader` to it
-
-  ```jsx
-  <div data-testid="loader">
-    <Loader type="ThreeDots" color="#0b69ff" height={80} width={80} />
-  </div>
-  ```
-
-- The product image in Product Item Details Route should have the alt as **product**
-- The similar product image in Product Item Details Route should have the alt as **similar product {product title}**
-
-  ```example
-  similar product Wide Bowknot Hat
-  ```
-
-- `BsPlusSquare`, `BsDashSquare` icons from react-icons should be used for **plus** and **minus** buttons in ProductItemDetails Route
-- The Product Item Details Route should consist of two HTML button elements with `data-testid` attribute values as **plus** and **minus** respectively
-
-</details>
-
-### Resources
-
-<details>
-<summary>Image URLs</summary>
-
-- [https://assets.ccbp.in/frontend/react-js/star-img.png](https://assets.ccbp.in/frontend/react-js/star-img.png) alt should be **star**
-- [https://assets.ccbp.in/frontend/react-js/nxt-trendz-error-view-img.png](https://assets.ccbp.in/frontend/react-js/nxt-trendz-error-view-img.png) alt should be **error view**
-
-</details>
-
-<details>
-<summary>Colors</summary>
-
-<br/>
-
-<div style="background-color: #12022f; width: 150px; padding: 10px; color: white">Hex: #12022f</div>
-<div style="background-color: #616e7c; width: 150px; padding: 10px; color: white">Hex: #616e7c</div>
-<div style="background-color: #171f46; width: 150px; padding: 10px; color: white">Hex: #171f46</div>
-<div style="background-color: #cbced2; width: 150px; padding: 10px; color: black">Hex: #cbced2</div>
-<div style="background-color: #ffffff; width: 150px; padding: 10px; color: black">Hex: #ffffff</div>
-<div style="background-color: #3b82f6; width: 150px; padding: 10px; color: white">Hex: #3b82f6</div>
-<div style="background-color: #1e293b; width: 150px; padding: 10px; color: white">Hex: #1e293b</div>
-<div style="background-color: #475569; width: 150px; padding: 10px; color: white">Hex: #475569</div>
-
-</details>
-
-<details>
-<summary>Font-families</summary>
-
-- Roboto
-
-</details>
 
 > ### _Things to Keep in Mind_
 >
